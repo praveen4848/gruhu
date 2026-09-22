@@ -1,0 +1,35 @@
+# Target / Build artifacts
+target/
+*.war
+*.ear
+*.jar
+*.class
+src/main/webapp/WEB-INF/classes/
+WEB-INF/classes/
+
+# Eclipse
+.classpath
+.project
+.settings/
+.metadata/
+Servers/
+
+# IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+*.ipr
+out/
+
+# VS Code
+.vscode/
+
+# Logs & OS artifacts
+*.log
+sources.txt
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Scratch temporary testing files
+scratch/
