@@ -50,14 +50,13 @@ public class HomeServlet extends HttpServlet {
             }
         }
 
-        // Fetch curated categories, featured products, and full active products for home showcase
+        // Fetch curated categories and featured products for home showcase
         List<Category> categories = categoryService.getActiveCategories();
         List<Product> featuredProducts = productService.getFeaturedProducts(8);
-        List<Product> homeProducts = productService.getAllActiveProducts(null);
 
         request.setAttribute("categories", categories);
         request.setAttribute("featuredProducts", featuredProducts);
-        request.setAttribute("homeProducts", homeProducts);
+        request.setAttribute("homeProducts", featuredProducts);
         request.setAttribute("extraCss", "home.css");
         request.setAttribute("pageTitle", "Gruhu — Architectural Home Interior & Living");
 

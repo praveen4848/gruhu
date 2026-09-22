@@ -695,6 +695,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const originalBtnHtml = submitBtn ? submitBtn.innerHTML : null;
         if (submitBtn) {
             submitBtn.disabled = true;
+            if (isCartAdd) {
+                submitBtn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i> <span>Adding...</span>';
+            }
         }
 
         try {
@@ -717,15 +720,17 @@ document.addEventListener('DOMContentLoaded', () => {
                     const cartBadge = document.getElementById('cartCountBadge');
                     if (cartBadge && typeof data.cartCount !== 'undefined') {
                         cartBadge.textContent = data.cartCount;
+                        cartBadge.classList.add('badge-pulse');
+                        setTimeout(() => cartBadge.classList.remove('badge-pulse'), 800);
                     }
                     showToast(data.message || 'Added to your Atelier Bag.', 'success');
 
                     if (submitBtn) {
-                        submitBtn.innerHTML = '<i class="fa-solid fa-check"></i> <span>Added</span>';
+                        submitBtn.innerHTML = '<i class="fa-solid fa-check"></i> <span>Added!</span>';
                         setTimeout(() => {
                             if (originalBtnHtml) submitBtn.innerHTML = originalBtnHtml;
                             submitBtn.disabled = false;
-                        }, 1800);
+                        }, 1200);
                         return;
                     }
                 } else if (isWishlistToggle) {
